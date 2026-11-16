@@ -17,3 +17,7 @@ results/history/
 
 # filings are not redistributed; put your own PDF in samples/
 samples/*.pdf
+
+# the local venv (symlink or directory)
+.venv314
+.venv
