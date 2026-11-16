@@ -1,4 +1,4 @@
-"""Smoke tests for both app modes (skipped without a corpus)."""
+"""Smoke tests for the annotation bench."""
 
 from __future__ import annotations
 
@@ -7,11 +7,6 @@ from pathlib import Path
 import pytest
 
 APP = Path(__file__).resolve().parents[1] / "app.py"
-
-pytestmark = pytest.mark.skipif(
-    not Path("build/ground_truth.json").exists(),
-    reason="run scripts/build_corpus.py first",
-)
 
 
 def test_annotate_mode_renders_and_asks_for_a_pdf():
