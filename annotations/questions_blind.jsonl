@@ -1,0 +1,14 @@
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 5255815.0, "note": "concept-first; row on p12", "qid": "B01", "question": "What was the bank's net profit?", "required_units": ["U:1c278d0db6"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 25481589.0, "note": "concept-first; row on p12", "qid": "B02", "question": "What was the operating income?", "required_units": ["U:ec30ea814c"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": -10488740.0, "note": "concept-first; row on p18", "qid": "B03", "question": "What were the operating expenses?", "required_units": ["U:137cbd6cdd"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 39.01, "note": "concept-first; row on p13", "qid": "B04", "question": "What was the cost-to-income ratio?", "required_units": ["U:96ad20e117"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 1.31, "note": "concept-first; row on p13", "qid": "B05", "question": "What was the net interest margin?", "required_units": ["U:9aa3962e58"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 1.76, "note": "concept-first; row on p13", "qid": "B06", "question": "What was the non-performing loan ratio?", "required_units": ["U:8d4bb41481"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 155.19, "note": "concept-first; row on p13", "qid": "B07", "question": "What was the provision coverage ratio?", "required_units": ["U:159c885653"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 11.63, "note": "concept-first; row on p13", "qid": "B08", "question": "What was the capital adequacy ratio?", "required_units": ["U:0e3a8c42e7"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 0.24, "note": "concept-first; row on p12", "qid": "B09", "question": "What were the earnings per share?", "required_units": ["U:b063605413"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 1843842128.0, "note": "concept-first; row on p12", "qid": "B10", "question": "What were the total assets?", "required_units": ["U:3afb7c067c"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 936490691.0, "note": "concept-first; row on p12", "qid": "B11", "question": "What were the loans and advances to customers?", "required_units": ["U:1ad0314d13"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 1046088795.0, "note": "concept-first; row on p12", "qid": "B12", "question": "What were the customer deposits?", "required_units": ["U:ebd66544e7"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": 4.44, "note": "concept-first; row on p12", "qid": "B13", "question": "What was the return on average equity?", "required_units": ["U:d6098fea03"]}
+{"doc": "bohai_bank_annual_2024.pdf", "gold_value": -9659819.0, "note": "concept-first; row on p18", "qid": "B14", "question": "What was the impairment charge?", "required_units": ["U:9a460511a8"]}

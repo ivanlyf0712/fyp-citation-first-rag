@@ -1,0 +1,14 @@
+# core
+docling>=2.150
+pymupdf>=1.24
+sentence-transformers>=3.0
+torch>=2.2
+transformers>=4.40
+
+# ui
+streamlit>=1.40
+streamlit-image-coordinates>=0.1.6
+
+# http / test
+requests>=2.31
+pytest>=8.0

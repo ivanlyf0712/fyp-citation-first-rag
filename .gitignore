@@ -1,0 +1,19 @@
+# environment
+.venv314/
+.venv/
+__pycache__/
+*.pyc
+.tmp/
+.DS_Store
+
+# generated or private data — recreate with scripts/build_unit_corpus.py
+annotations/cache/
+annotations/corpus/
+annotations/vectors/
+annotations/uploads/
+annotations/runs/
+annotations/units.stale-v1.jsonl
+results/history/
+
+# filings are not redistributed; put your own PDF in samples/
+samples/*.pdf
