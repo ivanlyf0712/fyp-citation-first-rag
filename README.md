@@ -132,6 +132,7 @@ better on paraphrases (12.7 vs 9), and with the evidence removed it answers
 wrongly 2 times where the baseline does so 7 ([BASELINE_CHUNK.md](BASELINE_CHUNK.md)).
 | second English filing (BOC HK, 10) | **0.60** | 4 |
 | Chinese filing, 15 questions | **0.47** (7/15) | 4 |
+| chart questions, answered from images (5) | **0.40** (2/5) | 1 |
 | same, with `deepseek-reasoner` | **0.76** | 2 |
 | evidence withheld (14) | 0 correct, 2 lookalike answers, 12 refusals | — |
 

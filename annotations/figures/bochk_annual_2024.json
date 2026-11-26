@@ -1,0 +1,573 @@
+[
+ {
+  "crop": "p109_ee97b29050.png",
+  "kind": "unreadable",
+  "title": "Diversified communication channels",
+  "values": []
+ },
+ {
+  "crop": "p10_3ea5ce4d7d.png",
+  "kind": "photo",
+  "title": "",
+  "values": []
+ },
+ {
+  "crop": "p112_b8252163d3.png",
+  "kind": "donut",
+  "title": "Investor Meetings by Participant Category / Investors Met by Event",
+  "values": [
+   {
+    "label": "Investor Meetings by Participant Category: Fund Managers",
+    "value": 74
+   },
+   {
+    "label": "Investor Meetings by Participant Category: Analysts",
+    "value": 26
+   },
+   {
+    "label": "Investors Met by Event: Regular Meeting",
+    "value": 67
+   },
+   {
+    "label": "Investors Met by Event: Investor Conferences",
+    "value": 21
+   },
+   {
+    "label": "Investors Met by Event: Post-results Roadshows",
+    "value": 11
+   },
+   {
+    "label": "Investors Met by Event: Results Briefing",
+    "value": 1
+   }
+  ]
+ },
+ {
+  "crop": "p115_1918a9e843.png",
+  "kind": "unreadable",
+  "title": "",
+  "values": []
+ },
+ {
+  "crop": "p115_ca13f2842c.png",
+  "kind": "unreadable",
+  "title": "",
+  "values": []
+ },
+ {
+  "crop": "p15_163f997de6.png",
+  "kind": "photo",
+  "title": "Businessman with skyline and abstract network",
+  "values": []
+ },
+ {
+  "crop": "p16_0cf9dad88b.png",
+  "kind": "line",
+  "title": "Profit for the Year; ROE and ROA; Basic EPS and DPS",
+  "values": [
+   {
+    "label": "Profit for the Year: 2020",
+    "value": 28468
+   },
+   {
+    "label": "Profit for the Year: 2021",
+    "value": 24999
+   },
+   {
+    "label": "Profit for the Year: 2022",
+    "value": 27230
+   },
+   {
+    "label": "Profit for the Year: 2023",
+    "value": 34857
+   },
+   {
+    "label": "Profit for the Year: 2024",
+    "value": 39118
+   },
+   {
+    "label": "ROE and ROA: ROE 2020",
+    "value": 9.05
+   },
+   {
+    "label": "ROE and ROA: ROE 2021",
+    "value": 7.67
+   },
+   {
+    "label": "ROE and ROA: ROE 2022",
+    "value": 8.5
+   },
+   {
+    "label": "ROE and ROA: ROE 2023",
+    "value": 10.6
+   },
+   {
+    "label": "ROE and ROA: ROE 2024",
+    "value": 11.61
+   },
+   {
+    "label": "ROE and ROA: ROA 2020",
+    "value": 0.86
+   },
+   {
+    "label": "ROE and ROA: ROA 2021",
+    "value": 0.7
+   },
+   {
+    "label": "ROE and ROA: ROA 2022",
+    "value": 0.75
+   },
+   {
+    "label": "ROE and ROA: ROA 2023",
+    "value": 0.9
+   },
+   {
+    "label": "ROE and ROA: ROA 2024",
+    "value": 0.95
+   },
+   {
+    "label": "Basic EPS and DPS: Basic EPS 2020",
+    "value": 2.5052
+   },
+   {
+    "label": "Basic EPS and DPS: Basic EPS 2021",
+    "value": 2.1726
+   },
+   {
+    "label": "Basic EPS and DPS: Basic EPS 2022",
+    "value": 2.4535
+   },
+   {
+    "label": "Basic EPS and DPS: Basic EPS 2023",
+    "value": 3.095
+   },
+   {
+    "label": "Basic EPS and DPS: Basic EPS 2024",
+    "value": 3.6162
+   },
+   {
+    "label": "Basic EPS and DPS: DPS 2020",
+    "value": 1.242
+   },
+   {
+    "label": "Basic EPS and DPS: DPS 2021",
+    "value": 1.13
+   },
+   {
+    "label": "Basic EPS and DPS: DPS 2022",
+    "value": 1.357
+   },
+   {
+    "label": "Basic EPS and DPS: DPS 2023",
+    "value": 1.672
+   },
+   {
+    "label": "Basic EPS and DPS: DPS 2024",
+    "value": 1.989
+   }
+  ]
+ },
+ {
+  "crop": "p16_92521f5e08.png",
+  "kind": "line",
+  "title": "Net Interest Margin (NIM), Cost to Income Ratio, and Impaired Loan Ratio",
+  "values": [
+   {
+    "label": "Net Interest Margin (\u201cNIM\u201d): 2020 Reported",
+    "value": 1.27
+   },
+   {
+    "label": "Net Interest Margin (\u201cNIM\u201d): 2020 Adjusted",
+    "value": 1.33
+   },
+   {
+    "label": "Net Interest Margin (\u201cNIM\u201d): 2021 Reported",
+    "value": 1.06
+   },
+   {
+    "label": "Net Interest Margin (\u201cNIM\u201d): 2021 Adjusted",
+    "value": 1.09
+   },
+   {
+    "label": "Net Interest Margin (\u201cNIM\u201d): 2022 Reported",
+    "value": 1.25
+   },
+   {
+    "label": "Net Interest Margin (\u201cNIM\u201d): 2022 Adjusted",
+    "value": 1.36
+   },
+   {
+    "label": "Net Interest Margin (\u201cNIM\u201d): 2023 Reported",
+    "value": 1.53
+   },
+   {
+    "label": "Net Interest Margin (\u201cNIM\u201d): 2023 Adjusted",
+    "value": 1.63
+   },
+   {
+    "label": "Net Interest Margin (\u201cNIM\u201d): 2024 Reported",
+    "value": 1.46
+   },
+   {
+    "label": "Net Interest Margin (\u201cNIM\u201d): 2024 Adjusted",
+    "value": 1.64
+   },
+   {
+    "label": "Cost to Income Ratio: 2020",
+    "value": 30.01
+   },
+   {
+    "label": "Cost to Income Ratio: 2021",
+    "value": 33.5
+   },
+   {
+    "label": "Cost to Income Ratio: 2022",
+    "value": 31.26
+   },
+   {
+    "label": "Cost to Income Ratio: 2023",
+    "value": 25.35
+   },
+   {
+    "label": "Cost to Income Ratio: 2024",
+    "value": 24.55
+   },
+   {
+    "label": "Impaired Loan Ratio: 2020",
+    "value": 0.27
+   },
+   {
+    "label": "Impaired Loan Ratio: 2021",
+    "value": 0.27
+   },
+   {
+    "label": "Impaired Loan Ratio: 2022",
+    "value": 0.53
+   },
+   {
+    "label": "Impaired Loan Ratio: 2023",
+    "value": 1.05
+   },
+   {
+    "label": "Impaired Loan Ratio: 2024",
+    "value": 1.05
+   }
+  ]
+ },
+ {
+  "crop": "p18_3213526026.png",
+  "kind": "line",
+  "title": "YOY %",
+  "values": [
+   {
+    "label": "YOY %: 23Q1",
+    "value": 2.7
+   },
+   {
+    "label": "YOY %: 23Q2",
+    "value": 1.6
+   },
+   {
+    "label": "YOY %: 23Q3",
+    "value": 4.2
+   },
+   {
+    "label": "YOY %: 23Q4",
+    "value": 4.3
+   },
+   {
+    "label": "YOY %: 24Q1",
+    "value": 2.8
+   },
+   {
+    "label": "YOY %: 24Q2",
+    "value": 3.1
+   },
+   {
+    "label": "YOY %: 24Q3",
+    "value": 1.9
+   },
+   {
+    "label": "YOY %: 24Q4",
+    "value": 2.4
+   }
+  ]
+ },
+ {
+  "crop": "p18_ff5228b828.png",
+  "kind": "line",
+  "title": "",
+  "values": [
+   {
+    "label": "Panel 1: Dec-23",
+    "value": 2.9
+   },
+   {
+    "label": "Panel 1: Jan-24",
+    "value": 2.9
+   },
+   {
+    "label": "Panel 1: Feb-24",
+    "value": 2.9
+   },
+   {
+    "label": "Panel 1: Mar-24",
+    "value": 3.0
+   },
+   {
+    "label": "Panel 1: Apr-24",
+    "value": 3.0
+   },
+   {
+    "label": "Panel 1: May-24",
+    "value": 3.0
+   },
+   {
+    "label": "Panel 1: Jun-24",
+    "value": 3.0
+   },
+   {
+    "label": "Panel 1: Jul-24",
+    "value": 3.0
+   },
+   {
+    "label": "Panel 1: Aug-24",
+    "value": 3.0
+   },
+   {
+    "label": "Panel 1: Sep-24",
+    "value": 3.0
+   },
+   {
+    "label": "Panel 1: Oct-24",
+    "value": 3.1
+   },
+   {
+    "label": "Panel 1: Nov-24",
+    "value": 3.1
+   },
+   {
+    "label": "Panel 1: Dec-24",
+    "value": 3.1
+   }
+  ]
+ },
+ {
+  "crop": "p19_857b495dab.png",
+  "kind": "line",
+  "title": "",
+  "values": [
+   {
+    "label": "1-month HIBOR (Quarterly Average): 23Q1",
+    "value": 3.0
+   },
+   {
+    "label": "1-month HIBOR (Quarterly Average): 23Q2",
+    "value": 4.0
+   },
+   {
+    "label": "1-month HIBOR (Quarterly Average): 23Q3",
+    "value": 4.8
+   },
+   {
+    "label": "1-month HIBOR (Quarterly Average): 23Q4",
+    "value": 5.1
+   },
+   {
+    "label": "1-month HIBOR (Quarterly Average): 24Q1",
+    "value": 4.6
+   },
+   {
+    "label": "1-month HIBOR (Quarterly Average): 24Q2",
+    "value": 4.4
+   },
+   {
+    "label": "1-month HIBOR (Quarterly Average): 24Q3",
+    "value": 4.2
+   },
+   {
+    "label": "1-month HIBOR (Quarterly Average): 24Q4",
+    "value": 4.3
+   },
+   {
+    "label": "1-month SOFR (Quarterly Average): 23Q1",
+    "value": 4.6
+   },
+   {
+    "label": "1-month SOFR (Quarterly Average): 23Q2",
+    "value": 5.0
+   },
+   {
+    "label": "1-month SOFR (Quarterly Average): 23Q3",
+    "value": 5.25
+   },
+   {
+    "label": "1-month SOFR (Quarterly Average): 23Q4",
+    "value": 5.3
+   },
+   {
+    "label": "1-month SOFR (Quarterly Average): 24Q1",
+    "value": 5.3
+   },
+   {
+    "label": "1-month SOFR (Quarterly Average): 24Q2",
+    "value": 5.3
+   },
+   {
+    "label": "1-month SOFR (Quarterly Average): 24Q3",
+    "value": 5.2
+   },
+   {
+    "label": "1-month SOFR (Quarterly Average): 24Q4",
+    "value": 4.6
+   }
+  ]
+ },
+ {
+  "crop": "p47_f5295cd173.png",
+  "kind": "unreadable",
+  "title": "",
+  "values": []
+ },
+ {
+  "crop": "p6_ca4e596bed.png",
+  "kind": "photo",
+  "title": "",
+  "values": []
+ },
+ {
+  "crop": "p86_03c89c9525.png",
+  "kind": "donut",
+  "title": "Board composition",
+  "values": [
+   {
+    "label": "Gender: Male (percentage)",
+    "value": 80
+   },
+   {
+    "label": "Gender: Female (percentage)",
+    "value": 20
+   },
+   {
+    "label": "Gender: Male (count)",
+    "value": 8
+   },
+   {
+    "label": "Gender: Female (count)",
+    "value": 2
+   },
+   {
+    "label": "Designation: Executive Director (percentage)",
+    "value": 10
+   },
+   {
+    "label": "Designation: Non-executive Director (percentage)",
+    "value": 20
+   },
+   {
+    "label": "Designation: Independent Non-executive Director (percentage)",
+    "value": 70
+   },
+   {
+    "label": "Designation: Executive Director (count)",
+    "value": 1
+   },
+   {
+    "label": "Designation: Non-executive Director (count)",
+    "value": 2
+   },
+   {
+    "label": "Designation: Independent Non-executive Director (count)",
+    "value": 7
+   },
+   {
+    "label": "Age group: 46-55 (percentage)",
+    "value": 30
+   },
+   {
+    "label": "Age group: 56-65 (percentage)",
+    "value": 40
+   },
+   {
+    "label": "Age group: Over 65 (percentage)",
+    "value": 30
+   },
+   {
+    "label": "Age group: 46-55 (count)",
+    "value": 3
+   },
+   {
+    "label": "Age group: 56-65 (count)",
+    "value": 4
+   },
+   {
+    "label": "Age group: Over 65 (count)",
+    "value": 3
+   },
+   {
+    "label": "Geographical location: Chinese mainland (percentage)",
+    "value": 20
+   },
+   {
+    "label": "Geographical location: Hong Kong, China (percentage)",
+    "value": 80
+   },
+   {
+    "label": "Geographical location: Chinese mainland (count)",
+    "value": 2
+   },
+   {
+    "label": "Geographical location: Hong Kong, China (count)",
+    "value": 8
+   },
+   {
+    "label": "Length of services: Less than 1 year (percentage)",
+    "value": 10
+   },
+   {
+    "label": "Length of services: 1-6 years (percentage)",
+    "value": 70
+   },
+   {
+    "label": "Length of services: 6-9 years (percentage)",
+    "value": 10
+   },
+   {
+    "label": "Length of services: Over 9 years (percentage)",
+    "value": 10
+   },
+   {
+    "label": "Length of services: Less than 1 year (count)",
+    "value": 1
+   },
+   {
+    "label": "Length of services: 1-6 years (count)",
+    "value": 7
+   },
+   {
+    "label": "Length of services: 6-9 years (count)",
+    "value": 1
+   },
+   {
+    "label": "Length of services: Over 9 years (count)",
+    "value": 1
+   },
+   {
+    "label": "Attendance rate at Board meetings in 2024*: Below 80% (percentage)",
+    "value": 10
+   },
+   {
+    "label": "Attendance rate at Board meetings in 2024*: 100% (percentage)",
+    "value": 90
+   },
+   {
+    "label": "Attendance rate at Board meetings in 2024*: Below 80% (count)",
+    "value": 1
+   },
+   {
+    "label": "Attendance rate at Board meetings in 2024*: 100% (count)",
+    "value": 9
+   }
+  ]
+ }
+]

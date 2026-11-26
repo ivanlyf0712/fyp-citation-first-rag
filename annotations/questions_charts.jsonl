@@ -1,0 +1,5 @@
+{"doc": "bochk_annual_2024.pdf", "gold_value": 80.0, "note": "chart question; answer exists only in the image", "qid": "V01", "question": "What share of the board is male?", "required_units": ["U:03c89c9525"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 70.0, "note": "chart question; answer exists only in the image", "qid": "V02", "question": "What share of directors are independent non-executive directors?", "required_units": ["U:03c89c9525"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 40.0, "note": "chart question; answer exists only in the image", "qid": "V03", "question": "What share of directors are aged 56 to 65?", "required_units": ["U:03c89c9525"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 90.0, "note": "chart question; answer exists only in the image", "qid": "V04", "question": "What share of directors attended 100% of board meetings in 2024?", "required_units": ["U:03c89c9525"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 80.0, "note": "chart question; answer exists only in the image", "qid": "V05", "question": "What share of directors are based in Hong Kong, China?", "required_units": ["U:03c89c9525"]}

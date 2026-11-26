@@ -51,6 +51,15 @@ Linking and crops are built: BOC's 112 figure regions, 14 chart-like candidates,
 108 links by nearest block and 4 by explicit reference, crops stored under
 `annotations/figures/bochk_annual_2024/`.
 
-Extraction is blocked on model quality: `SmolVLM-500M` answers "Chart" and
-returns no values. `scripts/read_figures.py --model <2B+ VLM>` is ready; a 3B
-model or a hosted vision API is required before V5 and V6 can run.
+Extraction works through the gateway's vision model (`deepseek-flash`, image
+input, JSON-only, low reasoning effort). Local VLMs were tried first: SmolVLM-500M
+classified charts but read no values, and multi-GB downloads are blocked on this
+network (831 B/s from the HF CDN).
+
+14 BOC figures read: 6 charts with values, 3 photos, 5 unreadable. The
+board-composition chart yielded 32 values, all correct on inspection. Values are
+merged into the units (`scripts/apply_figures.py`), so a chart answer cites the
+figure and is checked against its extracted numbers.
+
+Five chart-only questions: **2 correct, 1 wrong, 1 rejected, 1 declined**
+([CHARTS.md](../CHARTS.md)). The failures are question wording, not vision.
