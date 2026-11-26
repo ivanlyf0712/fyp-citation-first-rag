@@ -144,6 +144,8 @@ the question:
 
 ## Limitations
 
+- **One English document.** Adding another is three commands
+  ([SECOND_FILING.md](SECOND_FILING.md)) — the missing piece is the PDF, not code.
 - **One English document.** A second (Chinese) filing parses into 10,052 units and
   retrieves at 0.73 once its header context is indexed and `bge-m3` is used, but
   the agent answers only 7 of 15 ([TENCENT.md](TENCENT.md)).
