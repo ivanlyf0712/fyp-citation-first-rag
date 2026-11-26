@@ -31,6 +31,19 @@ instrument, not the system.
 The paraphrase set is weaker and noisier than earlier single runs suggested
 (7–8/10). Three runs are the honest number; one run is not.
 
+### Ten more fair paraphrases (balance sheet, p24)
+
+A second fair set, written to reduce dependence on one batch of questions:
+
+| run | correct | wrong | rejected | declined |
+|---|---|---|---|---|
+| 1 | 7 | 3 | 0 | 0 |
+| 2 | 5 | 3 | 1 | 1 |
+| 3 | 6 | 4 | 0 | 0 |
+
+**Mean 6.0/10 (0.60)**. Combined with the earlier 19 (0.67), the fair-paraphrase
+estimate over **29 questions is 0.65**, range 0.57–0.74 across runs.
+
 ### Model comparison (19 fair paraphrases, 2 runs each)
 
 | model | correct | wrong |

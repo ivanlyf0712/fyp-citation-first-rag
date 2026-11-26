@@ -125,6 +125,7 @@ three runs per set:
 | uses the report's own wording (31) | **0.94** | 0–1 |
 | concept questions, written before mapping (14) | **0.86** | 0–1 |
 | fair paraphrases (19) | **0.67** | 4–6 |
+| ten more, balance sheet (10) | **0.60** | 3–4 |
 | multi-hop ratios (5) | **1.00** | 0 |
 
 Against a chunk-RAG baseline with no checks: equal on easy questions (12/14),
