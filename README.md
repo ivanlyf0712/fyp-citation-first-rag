@@ -126,6 +126,10 @@ three runs per set:
 | concept questions, written before mapping (14) | **0.86** | 0–1 |
 | fair paraphrases (19) | **0.67** | 4–6 |
 | multi-hop ratios (5) | **1.00** | 0 |
+
+Against a chunk-RAG baseline with no checks: equal on easy questions (12/14),
+better on paraphrases (12.7 vs 9), and with the evidence removed it answers
+wrongly 2 times where the baseline does so 7 ([BASELINE_CHUNK.md](BASELINE_CHUNK.md)).
 | second English filing (BOC HK, 10) | **0.60** | 4 |
 | Chinese filing, 15 questions | **0.47** (7/15) | 4 |
 | same, with `deepseek-reasoner` | **0.76** | 2 |

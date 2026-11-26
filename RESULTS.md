@@ -79,6 +79,21 @@ Indexing the header with each row was the difference: 0.20 → 0.73, because the
 year is a column heading and matched nothing before. The agent answers 7 of 15,
 with 4 wrong and 4 rejected. Detail in [TENCENT.md](TENCENT.md).
 
+## Baseline: chunk RAG without verification
+
+1,366 text chunks (700 chars), same model, same questions, same top-5 budget and
+reranker — only the unit and the checks differ ([BASELINE_CHUNK.md](BASELINE_CHUNK.md)).
+
+| set | chunk RAG | citation-first |
+|---|---|---|
+| concept (14) | 12 correct, 2 wrong | 12 correct, 2 wrong |
+| paraphrases (19) | 9 correct, **10 wrong** | 12.7 correct, 4–6 wrong |
+| **evidence removed (14)** | **7 wrong, 4 declined** | **2 wrong, 12 refused** |
+
+So the baseline is not a straw man: it matches on easy questions and beats
+nothing. The difference appears where it matters — paraphrase selection, and
+answering when the evidence is gone.
+
 ## When the evidence is out of reach
 
 Every unit carrying the answer removed — the permission case reduced to its
