@@ -130,6 +130,11 @@ three runs per set:
 Against a chunk-RAG baseline with no checks: equal on easy questions (12/14),
 better on paraphrases (12.7 vs 9), and with the evidence removed it answers
 wrongly 2 times where the baseline does so 7 ([BASELINE_CHUNK.md](BASELINE_CHUNK.md)).
+With verification switched off on the agent itself, the checks almost never fire
+on ordinary questions (0 unsupported), so their value is concentrated in the
+insufficient-evidence case ([BASELINE_NO_CHECK.md](BASELINE_NO_CHECK.md)).
+An LLM judge agrees with the deterministic scorer 0.93–0.95 (kappa 0.81–0.87) and
+finds every answer faithful to its citations ([JUDGE.md](JUDGE.md)).
 | second English filing (BOC HK, 10) | **0.60** | 4 |
 | Chinese filing, 15 questions | **0.47** (7/15) | 4 |
 | chart questions, answered from images (5) | **0.40** (2/5) | 1 |
