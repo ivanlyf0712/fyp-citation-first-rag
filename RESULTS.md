@@ -96,6 +96,7 @@ reranker — only the unit and the checks differ ([BASELINE_CHUNK.md](BASELINE_C
 | concept (14) | 12 correct, 2 wrong | 12 correct, 2 wrong |
 | paraphrases (19) | 9 correct, **10 wrong** | 12.7 correct, 4–6 wrong |
 | **evidence removed (14)** | **7 wrong, 4 declined** | **2 wrong, 12 refused** |
+| page-image retrieval, CLIP (14 / 19) | 3 / 4 correct | 12 / 12.7 correct |
 
 So the baseline is not a straw man: it matches on easy questions and beats
 nothing. The difference appears where it matters — paraphrase selection, and

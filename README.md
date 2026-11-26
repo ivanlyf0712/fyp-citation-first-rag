@@ -133,6 +133,9 @@ wrongly 2 times where the baseline does so 7 ([BASELINE_CHUNK.md](BASELINE_CHUNK
 With verification switched off on the agent itself, the checks almost never fire
 on ordinary questions (0 unsupported), so their value is concentrated in the
 insufficient-evidence case ([BASELINE_NO_CHECK.md](BASELINE_NO_CHECK.md)).
+A page-image baseline (CLIP over rendered pages, top-3) scores 3/14 and 4/19 —
+generic image retrieval cannot read dense financial text, though a document-image
+model would do better ([BASELINE_PAGE.md](BASELINE_PAGE.md)).
 An LLM judge agrees with the deterministic scorer 0.93–0.95 (kappa 0.81–0.87) and
 finds every answer faithful to its citations ([JUDGE.md](JUDGE.md)).
 | second English filing (BOC HK, 10) | **0.60** | 4 |
