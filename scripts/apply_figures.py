@@ -39,9 +39,19 @@ def main() -> int:
             key = (unit["page"], unit["unit_id"].split(":")[-1][:10])
             record = by_key.get(key)
             if record and record.get("values"):
-                parts = [f"{v['label']}: {v['value']}" for v in record["values"]]
+                # group by panel so the model reads a small table, not a wall
+                panels: dict[str, list[str]] = {}
+                for v in record["values"]:
+                    label = str(v["label"])
+                    panel, _, item = label.partition(": ")
+                    if not item:
+                        panel, item = "values", label
+                    panels.setdefault(panel.strip(), []).append(
+                        f"{item} {v['value']}")
+                body = " | ".join(f"{name}: " + "; ".join(items)
+                                  for name, items in panels.items())
                 unit = dict(unit)
-                unit["quote"] = f"{record.get('title') or 'chart'}. " + "; ".join(parts)
+                unit["quote"] = (f"[chart] {record.get('title') or 'figure'} — {body}")
                 unit["numbers"] = [float(v["value"]) for v in record["values"]]
                 unit["chart_kind"] = record["kind"]
                 used += 1

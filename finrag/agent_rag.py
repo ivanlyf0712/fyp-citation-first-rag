@@ -22,6 +22,7 @@ YEAR = re.compile(r"\b(19|20)\d{2}\b")
 _MONTHS = ("January|February|March|April|May|June|July|August|September|"
            "October|November|December")
 # both orders appear in filings: "31 December 2024" and "December 31, 2024"
+RANGE = re.compile(r"\b\d{1,3}\s*[-–—]\s*\d{1,3}\b")   # "56-65", a label not a claim
 DATE = re.compile(
     rf"\b(?:\d{{1,2}}\s+(?:{_MONTHS})|(?:{_MONTHS})\s+\d{{1,2}}),?\s*\d{{0,4}}\b",
     re.I)
@@ -50,6 +51,9 @@ Rules:
   year; the second is the prior year. Read the column the question asks for.
 - Every number in your answer must appear in a quote you cite.
 - Cite only unit ids that a tool returned to you.
+- Units beginning "[chart]" are extracted from an image by a vision model. Their
+  values are written "panel: label value"; use them when the question asks for a
+  share or percentage shown in a chart.
 - A single row cannot be judged. If a row looks right, call read_table on it to
   see the whole statement, then answer from the row that matches the question.
 - If a search returns nothing useful, try search_expanded, which rewrites the
@@ -305,7 +309,7 @@ def answer_numbers(text: str) -> list[float]:
     recognised as a year. The cost: a genuine quantity of 2024 would also be
     dropped — rare enough to accept, and noted rather than hidden.
     """
-    flat = DATE.sub(" ", text).replace(",", "")
+    flat = RANGE.sub(" ", DATE.sub(" ", text)).replace(",", "")
     cleaned = YEAR.sub(" ", flat)
     values, _flag = parse_numbers(cleaned)
     return values
@@ -405,6 +409,10 @@ def verify_answer(answer: str, citations: list[str], units: dict,
     allowed: list[float] = []
     for unit in cited:
         allowed.extend(abs(v) for v in unit.numbers)
+        # the quote's text counts too: a chart label like "100% 90" carries a
+        # number that is not one of the unit's parsed values
+        text_numbers, _flag = parse_numbers(unit.quote)
+        allowed.extend(abs(v) for v in text_numbers)
     # scale-aware support: "5,256 million" restates a quote holding 5,255,815
     unsupported = [n for n in numbers
                    if not any(value_matches(n, v) for v in allowed)]

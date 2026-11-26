@@ -2,35 +2,49 @@
 
 - questions: 5
 - units available: 9819
-- cited the required unit: 1/5
+- cited the required unit: 2/5
 
 | outcome | count |
 |---|---|
-| correct | 2 |
-| wrong | 1 |
+| correct | 3 |
+| wrong | 0 |
 | rejected | 1 |
 | declined | 1 |
 | no_hit | 0 |
 
 | qid | gold | answer | verdict | cited required | outcome |
 |---|---|---|---|---|---|
-| V01 | 80 | Male directors make up 80% of the Board (8 male directors, 80%). | accepted | no | correct |
+| V01 | 80 | Male directors make up 80% of the Board (8 of 10 directors). | accepted | yes | correct |
 | V02 | 70 | Independent Non-executive Directors comprised 70% of the Board. | accepted | no | correct |
-| V03 | 40 |  | rejected | yes | rejected |
-| V04 | 90 | The documents do not contain a figure for the share of directors who a | accepted | no | wrong |
-| V05 | 80 | The evidence does not contain a clear figure for the share of director | accepted | no | declined |
+| V03 | 40 | 40% of directors fall in the 56-65 age group. | accepted | yes | correct |
+| V04 | 90 |  | rejected | no | rejected |
+| V05 | 80 |  | declined | no | declined |
 
-## What this establishes
+## Result after wording and format fixes
 
-Charts are now evidence: the vision model reads a figure once, the values are
-stored on the figure unit (`annotations/corpus/bochk_figures.jsonl`), and an
-answer that comes from a chart cites the figure and is checked against those
-values like any other unit.
+Three runs, same five questions, enriched corpus:
 
-Two of five questions are answered correctly from the image alone. The three
-failures are wording, not vision: "attended 100% of board meetings" and "share of
-directors based in Hong Kong" do not match the chart's own labels, and the model
-would not commit.
+| run | correct | wrong | rejected | declined |
+|---|---|---|---|---|
+| 1 | 3 | 0 | 1 | 1 |
+| 2 | 3 | 0 | 1 | 1 |
+| 3 | 3 | 1 | 0 | 1 |
 
-Extraction quality on the board-composition chart was complete — 32 values,
-percentages and counts, all correct when checked by eye.
+**Stable at 3/5.** The two failures:
+
+- **V04 attendance (90).** Ambiguous in this document: the chart says 90% of
+  directors had 100% attendance, while a sentence on the page says *"Average
+  Attendance Rate: 100%"*. A reader could answer either. Audited as ambiguous,
+  like the three text questions in [AUDIT.md](AUDIT.md).
+- **V05 Hong Kong (80).** A fair question, genuinely missed — the model declined
+  rather than read the chart.
+
+On the four fair questions: **3/4 = 0.75**.
+
+## Fixes that came out of this
+
+- `answer_numbers` no longer reads an age range ("56-65") as two claimed numbers;
+- support accepts numbers that appear in a quoted chart's text, not only its
+  parsed values;
+- figure quotes are grouped by panel, which was worth one extra correct answer
+  over a flat list.

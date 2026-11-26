@@ -79,6 +79,13 @@ Indexing the header with each row was the difference: 0.20 → 0.73, because the
 year is a column heading and matched nothing before. The agent answers 7 of 15,
 with 4 wrong and 4 rejected. Detail in [TENCENT.md](TENCENT.md).
 
+## Charts
+
+BOC's board-composition chart is read once by a vision model (32 values, all
+correct), stored on the figure unit, and cited like any other evidence. Five
+chart-only questions: **3/5** (3/4 once the ambiguous attendance question is
+excluded), stable over three runs. [CHARTS.md](CHARTS.md).
+
 ## Baseline: chunk RAG without verification
 
 1,366 text chunks (700 chars), same model, same questions, same top-5 budget and

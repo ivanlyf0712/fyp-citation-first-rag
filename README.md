@@ -137,7 +137,7 @@ An LLM judge agrees with the deterministic scorer 0.93–0.95 (kappa 0.81–0.87
 finds every answer faithful to its citations ([JUDGE.md](JUDGE.md)).
 | second English filing (BOC HK, 10) | **0.60** | 4 |
 | Chinese filing, 15 questions | **0.47** (7/15) | 4 |
-| chart questions, answered from images (5) | **0.40** (2/5) | 1 |
+| chart questions, answered from images (5) | **0.60** (3/5, 3/4 fair) | 0–1 |
 | same, with `deepseek-reasoner` | **0.76** | 2 |
 | evidence withheld (14) | 0 correct, 2 lookalike answers, 12 refusals | — |
 
