@@ -23,19 +23,22 @@ from finrag.ingest import parse_numbers  # noqa: E402
 from finrag.real_eval import load_jsonl  # noqa: E402
 
 CONCEPTS = [
-    ("What was the bank's net profit?", ["net profit"]),
-    ("What was the operating income?", ["operating income"]),
+    ("What was the bank's net profit?", ["net profit", "profit for the year"]),
+    ("What was the operating income?", ["operating income",
+                                        "net operating income before impairment"]),
     ("What were the operating expenses?", ["operating expenses"]),
-    ("What was the cost-to-income ratio?", ["cost-to-income"]),
+    ("What was the cost-to-income ratio?", ["cost-to-income", "cost to income"]),
     ("What was the net interest margin?", ["net interest margin"]),
-    ("What was the non-performing loan ratio?", ["npl ratio", "non-performing"]),
+    ("What was the net interest income?", ["net interest income"]),
+    ("What was the non-performing loan ratio?", ["non-performing", "npl ratio"]),
     ("What was the provision coverage ratio?", ["allowance coverage", "provision coverage"]),
-    ("What was the capital adequacy ratio?", ["capital adequacy ratio"]),
-    ("What were the earnings per share?", ["earnings per share"]),
+    ("What was the capital adequacy ratio?", ["capital adequacy ratio", "total capital ratio"]),
+    ("What were the earnings per share?", ["basic earnings per share", "earnings per share"]),
     ("What were the total assets?", ["total assets"]),
-    ("What were the loans and advances to customers?", ["loans and advances to customers"]),
+    ("What were the loans and advances to customers?",
+     ["advances to customers and other accounts", "loans and advances to customers"]),
     ("What were the customer deposits?", ["deposits from customers"]),
-    ("What was the impairment charge?", ["impairment losses"]),
+    ("What was the impairment charge?", ["impairment losses", "impairment allowances"]),
 ]
 
 
@@ -65,14 +68,17 @@ def main() -> int:
         best, best_score = None, 0
         for unit in rows:
             label = unit["quote"].split(" | ")[0].lower().strip()
+            if "impairment" in label and "before impairment" in label:
+                continue          # "income before impairment" is not a charge
+            # a line item is matched by how its label *begins*; a phrase buried
+            # in the middle ("operating profit after impairment allowances") is a
+            # different metric
             score = 0
             for phrase in phrases:
                 if label == phrase:
                     score = max(score, 3)
                 elif label.startswith(phrase):
                     score = max(score, 2)
-                elif phrase in label and not label.startswith(("average", "weighted", "return on")):
-                    score = max(score, 1)
             if score <= best_score:
                 continue
             value = row_value(unit["quote"])

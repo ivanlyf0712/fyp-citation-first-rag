@@ -45,4 +45,4 @@ not quote numbers from an unreviewed mapping.
 |---|---|---|---|
 | Bohai 2024 (English) | 4,989 units | 60 across three sets | yes |
 | Tencent 2025 (Chinese) | 10,052 units | 15 | yes, 7/15 |
-| a second **English** bank | — | — | **needs a PDF in `samples/`** |
+| BOC Hong Kong 2024 (English) | 9,819 units, 313 pp | 10 | **6/10**, see [BOCHK.md](BOCHK.md) |

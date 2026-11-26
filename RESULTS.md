@@ -57,6 +57,13 @@ the old set, and a better estimate because the sample is larger. The failures ar
 the same class as before: lookalike rows ("gross" wording, neighbouring line
 items), not invented numbers.
 
+## A second English document
+
+BOC Hong Kong Holdings 2024, 313 pages, 9,819 units, 10 machine-mapped questions
+(reviewed): **6 correct, 4 wrong** — 0.60, against 0.86 on the concept set for
+Bohai. The failures are the same class: one ambiguous metric and three
+period/version picks. [BOCHK.md](BOCHK.md).
+
 ## A second document (Chinese)
 
 Tencent 2025, 282 pages, 10,052 units, 1,975 table rows. Retrieval of the 15

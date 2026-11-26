@@ -126,6 +126,7 @@ three runs per set:
 | concept questions, written before mapping (14) | **0.86** | 0–1 |
 | fair paraphrases (19) | **0.67** | 4–6 |
 | multi-hop ratios (5) | **1.00** | 0 |
+| second English filing (BOC HK, 10) | **0.60** | 4 |
 | Chinese filing, 15 questions | **0.47** (7/15) | 4 |
 | same, with `deepseek-reasoner` | **0.76** | 2 |
 | evidence withheld (14) | 0 correct, 2 lookalike answers, 12 refusals | — |
@@ -144,11 +145,11 @@ the question:
 
 ## Limitations
 
-- **One English document.** Adding another is three commands
-  ([SECOND_FILING.md](SECOND_FILING.md)) — the missing piece is the PDF, not code.
 - **One English document.** A second (Chinese) filing parses into 10,052 units and
   retrieves at 0.73 once its header context is indexed and `bge-m3` is used, but
   the agent answers only 7 of 15 ([TENCENT.md](TENCENT.md)).
+- **Two English filings** (Bohai, BOC HK) and one Chinese; the second is small
+  (10 questions, machine-mapped) and lands at 0.60.
 - **60 questions, written by the author.** Three of the ten paraphrases are
   ambiguous; [AUDIT.md](AUDIT.md) lists them and reports both scores.
 - **Charts are not read.** Figure units carry captions only; "multimodal" here

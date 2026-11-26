@@ -1,0 +1,10 @@
+{"doc": "bochk_annual_2024.pdf", "gold_value": 39118.0, "note": "auto-mapped p2", "qid": "N01", "question": "What was the bank's net profit?", "required_units": ["U:75060b48e3"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": -17494.0, "note": "auto-mapped p20", "qid": "N03", "question": "What were the operating expenses?", "required_units": ["U:5f2fba82c6"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 24.55, "note": "auto-mapped p2", "qid": "N04", "question": "What was the cost-to-income ratio?", "required_units": ["U:6e8def485c"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 1.46, "note": "auto-mapped p21", "qid": "N05", "question": "What was the net interest margin?", "required_units": ["U:47db90ee7c"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 52334.0, "note": "auto-mapped p21", "qid": "N06", "question": "What was the net interest income?", "required_units": ["U:9312ca94b2"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 22.0, "note": "auto-mapped p2", "qid": "N09", "question": "What was the capital adequacy ratio?", "required_units": ["U:aff8bf4017"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 3.6162, "note": "auto-mapped p2", "qid": "N10", "question": "What were the earnings per share?", "required_units": ["U:8f1b9c5ef1"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 4194408.0, "note": "auto-mapped p2", "qid": "N11", "question": "What were the total assets?", "required_units": ["U:c73d915a53"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 1654660.0, "note": "auto-mapped p22", "qid": "N12", "question": "What were the loans and advances to customers?", "required_units": ["U:ce32d674a1"]}
+{"doc": "bochk_annual_2024.pdf", "gold_value": 2724221.0, "note": "auto-mapped p3", "qid": "N13", "question": "What were the customer deposits?", "required_units": ["U:ae3a06fded"]}
