@@ -1,0 +1,15 @@
+{"doc": "tencent_annual_2025.pdf", "gold_value": 751766.0, "note": "Chinese; year is a column heading", "qid": "T01", "question": "二零二五年的收入是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 422593.0, "note": "Chinese; year is a column heading", "qid": "T02", "question": "二零二五年的毛利是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 241562.0, "note": "Chinese; year is a column heading", "qid": "T03", "question": "二零二五年的經營盈利是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 277249.0, "note": "Chinese; year is a column heading", "qid": "T04", "question": "二零二五年的除稅前盈利是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 660257.0, "note": "Chinese; year is a column heading", "qid": "T05", "question": "二零二四年的收入是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 349246.0, "note": "Chinese; year is a column heading", "qid": "T06", "question": "二零二四年的毛利是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 609015.0, "note": "Chinese; year is a column heading", "qid": "T07", "question": "二零二三年的收入是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 293109.0, "note": "Chinese; year is a column heading", "qid": "T08", "question": "二零二三年的毛利是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 110827.0, "note": "Chinese; year is a column heading", "qid": "T09", "question": "二零二二年的經營盈利是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 560118.0, "note": "Chinese; year is a column heading", "qid": "T10", "question": "二零二一年的收入是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 751766.0, "note": "Chinese; year is a column heading", "qid": "T11", "question": "公司二零二五年的營業額是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 422593.0, "note": "Chinese; year is a column heading", "qid": "T12", "question": "二零二五年公司賺了多少毛利？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 241562.0, "note": "Chinese; year is a column heading", "qid": "T13", "question": "二零二五年經營溢利是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 277249.0, "note": "Chinese; year is a column heading", "qid": "T14", "question": "二零二五年除稅前利潤是多少？", "required_units": []}
+{"doc": "tencent_annual_2025.pdf", "gold_value": 660257.0, "note": "Chinese; year is a column heading", "qid": "T15", "question": "二零二四年公司的營業額是多少？", "required_units": []}

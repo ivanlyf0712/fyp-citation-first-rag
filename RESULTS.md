@@ -57,6 +57,21 @@ the old set, and a better estimate because the sample is larger. The failures ar
 the same class as before: lookalike rows ("gross" wording, neighbouring line
 items), not invented numbers.
 
+## A second document (Chinese)
+
+Tencent 2025, 282 pages, 10,052 units, 1,975 table rows. Retrieval of the 15
+Chinese questions, by arm:
+
+| arm | Recall@5 |
+|---|---|
+| BM25 (CJK bigrams) | 0.60 |
+| dense (`bge-m3`) | 0.47 |
+| RRF | **0.73** |
+
+Indexing the header with each row was the difference: 0.20 → 0.73, because the
+year is a column heading and matched nothing before. The agent answers 7 of 15,
+with 4 wrong and 4 rejected. Detail in [TENCENT.md](TENCENT.md).
+
 ## When the evidence is out of reach
 
 Every unit carrying the answer removed — the permission case reduced to its
