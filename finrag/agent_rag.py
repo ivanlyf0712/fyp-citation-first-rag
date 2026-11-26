@@ -38,6 +38,7 @@ To use a tool (prefer search_expanded — it rewrites the question and reranks):
 {"tool": "search_expanded", "query": "loans and advances to customers", "k": 5}
 {"tool": "find_row", "label": "gross loans and advances to customers"}
 {"tool": "read_table", "unit_id": "U:abc123"}
+{"tool": "related_rows", "unit_id": "U:abc123"}
 
 To answer:
 {"answer": "The Group's net profit was RMB5,255,815 thousand in 2024.",
@@ -145,6 +146,7 @@ class Tools:
     _bm25: Bm25Index | None = field(init=False, default=None)
     _headers: dict = field(init=False, default_factory=dict)
     _blocks: dict = field(init=False, default_factory=dict)
+    _graph: Any | None = field(init=False, default=None)
     _block_list: list = field(init=False, default_factory=list)
 
     def __post_init__(self) -> None:
@@ -155,7 +157,9 @@ class Tools:
                             text=f"{unit.quote} {unit.channel}"))
         index.finalize()
         self._bm25 = index
+        from .graph import UnitGraph
         from .tables import table_blocks
+        self._graph = UnitGraph.build(self.units)
         self._block_list = table_blocks(self.units)
         for number, block in enumerate(self._block_list):
             for unit in block:
@@ -241,6 +245,13 @@ class Tools:
         return [unit_view(unit, self._headers.get((unit.doc, unit.page), ""))
                 for _score, unit in scored[:k]]
 
+    def related_rows(self, unit_id: str, limit: int = 8) -> list[dict]:
+        """Rows linked to this one: same label elsewhere, then the same table."""
+        if self._graph is None:
+            return []
+        return [unit_view(u, self._headers.get((u.doc, u.page), ""))
+                for u in self._graph.neighbours(unit_id, limit=limit)]
+
     def read_table(self, unit_id: str, limit: int = 40) -> dict:
         """Every row of the table the given row belongs to."""
         number = self._blocks.get(unit_id)
@@ -269,6 +280,8 @@ class Tools:
         if name == "search_semantic":
             return {"units": self.search_semantic(str(args.get("query", "")),
                                                   int(args.get("k", 5)))}
+        if name == "related_rows":
+            return {"units": self.related_rows(str(args.get("unit_id", "")))}
         if name == "read_table":
             return self.read_table(str(args.get("unit_id", "")))
         if name == "find_row":

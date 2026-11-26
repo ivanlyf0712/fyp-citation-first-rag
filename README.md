@@ -125,6 +125,7 @@ three runs per set:
 | uses the report's own wording (31) | **0.94** | 0–1 |
 | concept questions, written before mapping (14) | **0.86** | 0–1 |
 | fair paraphrases (19) | **0.67** | 4–6 |
+| multi-hop ratios (5) | **1.00** | 0 |
 | Chinese filing, 15 questions | **0.47** (7/15) | 4 |
 | same, with `deepseek-reasoner` | **0.76** | 2 |
 | evidence withheld (14) | 0 correct, 2 lookalike answers, 12 refusals | — |
@@ -152,8 +153,11 @@ the question:
   means tables.
 - **Permissions are simulated** by removing evidence, not enforced by an access
   model.
+- **The graph is a linker, not a reasoner.** Promoting twins into retrieval made
+  answers worse (11/9 vs 12.7), so it is used for lookup and multi-hop only.
 - **Negative results are documented** rather than hidden: table-level context
-  (0.54), select-then-extract (0.16–0.36), label-similarity checks (unusable) —
+  (0.54), select-then-extract (0.16–0.36), label-similarity checks (unusable),
+  graph promotion (worse) —
   see [TABLE_CONTEXT.md](TABLE_CONTEXT.md), [SELECT_EXTRACT.md](SELECT_EXTRACT.md).
 
 ## Reproduce
