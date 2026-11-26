@@ -86,15 +86,30 @@
 
 <section>
   <div class="kicker">Results</div>
-  <h2>Three question sets, one frozen configuration</h2>
+  <h2>One configuration, across two English filings and a Chinese one</h2>
   <table>
-    <tr><th>questions</th><th>correct</th><th>wrong</th></tr>
+    <tr><th>question set</th><th>correct</th><th>wrong</th></tr>
     <tr><td>uses the report's own wording (31)</td><td class="good"><strong>0.94</strong></td><td>0–1</td></tr>
     <tr><td>concept questions (14)</td><td class="good"><strong>0.86</strong></td><td>0–1</td></tr>
     <tr><td>fair paraphrases (19)</td><td class="warn"><strong>0.67</strong></td><td>4–6</td></tr>
-    <tr><td>same, stronger model</td><td><strong>0.76</strong></td><td>2</td></tr>
+    <tr><td>second English filing, BOC HK (10)</td><td class="warn"><strong>0.60</strong></td><td>4</td></tr>
+    <tr><td>Chinese filing (15)</td><td class="bad"><strong>0.47</strong></td><td>4</td></tr>
+    <tr><td>chart questions, from images (5)</td><td class="warn"><strong>0.60</strong></td><td>0–1</td></tr>
   </table>
   <p class="cap">Retrieval is not the bottleneck: the right figure is in the top 5 for 80–90% of questions.</p>
+</section>
+
+<section>
+  <div class="kicker">Baselines</div>
+  <h2>What the checks are worth, against three alternatives</h2>
+  <table>
+    <tr><th>system</th><th>concept (14)</th><th>paraphrase (19)</th></tr>
+    <tr><td>page-image retrieval (CLIP, top-3)</td><td class="bad">3</td><td class="bad">4</td></tr>
+    <tr><td>chunk RAG, no checks</td><td>12</td><td class="warn">9</td></tr>
+    <tr><td><strong>citation-first units</strong></td><td class="good">12</td><td class="good">12.7</td></tr>
+  </table>
+  <p class="cap">With the evidence removed: chunk RAG gives 7 confident wrong answers, citation-first gives 2 and refuses the rest.</p>
+  <p class="cap">An LLM judge agrees with exact scoring 0.93–0.95 (kappa 0.81–0.87) and calls every answer faithful to its citations.</p>
 </section>
 
 <section>
@@ -117,7 +132,7 @@
       <li><strong>60 questions</strong>, written by the author; three are ambiguous and reported separately.</li>
     </ul>
     <ul>
-      <li><strong>Charts are not read</strong> — "multimodal" here means tables.</li>
+      <li><strong>Charts are read but fragile</strong> — 3 of 5 chart questions, from one chart; 5 of 14 figures unreadable.</li>
       <li><strong>Permissions are simulated</strong> by removing evidence, not enforced.</li>
       <li>Negative results are documented: table context 0.54, select-then-extract 0.16–0.36.</li>
     </ul>
