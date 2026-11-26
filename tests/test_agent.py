@@ -153,8 +153,8 @@ def test_wrong_column_is_rejected():
     units = {
         "U:row": SimpleNamespace(
             unit_id="U:row", doc="a.pdf", page=18, channel="table",
-            quote="Net profit | 5,255,815 | 5,080,903 | 174,912",
-            numbers=(5255815.0, 5080903.0, 174912.0)),
+            quote="Net profit | 5,255,815 | 5,080,903 | 174,912 | 3.44",
+            numbers=(5255815.0, 5080903.0, 174912.0, 3.44)),
     }
     headers = {("a.pdf", 18): "2024 | 2023 | Change | Increase (%)"}
 
@@ -239,3 +239,16 @@ def test_find_row_matches_labels_only():
     tools = Tools(UNITS)
     hits = tools.find_row("net profit")
     assert hits and hits[0]["quote"].startswith("Net profit")
+
+
+def test_rounded_millions_satisfy_the_year_column():
+    from finrag.agent_rag import verify_answer
+    units = {"U:row": SimpleNamespace(
+        unit_id="U:row", doc="a.pdf", page=18, channel="table",
+        quote="Net profit | 5,255,815 | 5,080,903 | 174,912 | 3.44",
+        numbers=(5255815.0, 5080903.0, 174912.0, 3.44))}
+    headers = {("a.pdf", 18): "2024 | 2023 | Change | Increase (%)"}
+    result = verify_answer("Net profit was RMB5,256 million in 2024, up 3.44%.",
+                           ["U:row"], units, headers=headers,
+                           question="What was the net profit in 2024?")
+    assert result["accepted"], result["failures"]

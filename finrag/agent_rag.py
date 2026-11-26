@@ -345,42 +345,39 @@ def column_map(header: str, row_quote: str):
 
 def column_failures(question: str, cited: list, numbers: list[float],
                     headers: dict) -> list[str]:
-    """Does each number sit in the column of the year the question asks about?
+    """Is the primary number in the column of the year the question names?
 
-    A row quote holds every year side by side, so "the quote contains 5,080,903"
-    is true whether the question asked 2024 or 2023. The header row says which
-    column is which, so the check can be made without asking a model.
+    A row holds every year side by side, so "the quote contains 5,080,903" is
+    true whether the question asked 2024 or 2023. The header says which column is
+    which. Only the first number is a column claim; the rest ("up 3.44%") merely
+    have to be in the row, which the support check already covers. Values are
+    compared with scale tolerance, so "5,256 million" satisfies a cell holding
+    "5,255,815" thousand.
     """
     years = YEAR_IN_QUESTION.findall(question or "")
-    if not numbers:
+    if not numbers or not years:
         return []
-    problems: list[str] = []
+    year = years[0]
 
     for unit in cited:
-        header = headers.get((unit.doc, unit.page), "")
-        if not header or "|" not in header or "|" not in unit.quote:
+        mapping = column_map(headers.get((unit.doc, unit.page), ""), unit.quote)
+        if not mapping:
+            continue                    # table not safely readable: never reject on it
+        target = next(((y, i) for y, i in mapping if y == year), None)
+        if target is None:
             continue
-        header_cells = [c.strip() for c in header.split("|")]
+        _year, index = target
         row_cells = [c.strip() for c in unit.quote.split("|")]
-        if not years:
-            continue          # no year asked, no column claim to check
-        year = years[0]
-        index = next((i for i, c in enumerate(header_cells) if year in c), None)
-        if index is None:
+        if index >= len(row_cells):
             continue
-        if len(row_cells) <= index + 1:
-            continue                      # header and row disagree; do not guess
-        cell = row_cells[index + 1]
+        cell = row_cells[index]
         cell_numbers, _flag = parse_numbers(cell)
-        allowed = {abs(v) for v in cell_numbers}
-        missing = [n for n in numbers if abs(n) not in allowed]
-        if missing:
-            problems.append(
-                f"{missing} not in the {year} column of {unit.unit_id} "
-                f"(that column holds {cell or 'nothing'})")
-        else:
-            return []                 # one cited row confirms the column
-    return problems
+        claim = numbers[0]
+        if any(value_matches(claim, n) for n in cell_numbers):
+            return []                   # one cited row confirms the column
+        return [f"{claim:g} not in the {year} column of {unit.unit_id} "
+                f"(that column holds {cell or 'nothing'})"]
+    return []
 
 
 def verify_answer(answer: str, citations: list[str], units: dict,
@@ -405,10 +402,12 @@ def verify_answer(answer: str, citations: list[str], units: dict,
         return {"status": "rejected", "accepted": False, "failures": failures,
                 "numbers": numbers}
 
-    allowed: set[float] = set()
+    allowed: list[float] = []
     for unit in cited:
-        allowed |= {abs(v) for v in unit.numbers}
-    unsupported = [n for n in numbers if abs(n) not in allowed]
+        allowed.extend(abs(v) for v in unit.numbers)
+    # scale-aware support: "5,256 million" restates a quote holding 5,255,815
+    unsupported = [n for n in numbers
+                   if not any(value_matches(n, v) for v in allowed)]
     if unsupported:
         failures.append(f"numbers not in cited quotes: {unsupported}")
 
