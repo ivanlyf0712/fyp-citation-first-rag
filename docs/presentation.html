@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Citation-first retrieval over financial documents — progress</title>
+<style>
+  :root { --ink:#101418; --paper:#f7f5f1; --muted:#5d6b75; --line:#d8d2c8;
+          --accent:#8c1d2f; --good:#1f6f4a; --warn:#9a5b12; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; }
+  body { background:var(--paper); color:var(--ink);
+         font: 20px/1.5 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .deck { height:100%; display:flex; align-items:center; justify-content:center; padding:4vh 6vw; }
+  section { display:none; width:min(1100px, 92vw); }
+  section.on { display:block; }
+  h1 { font-size: clamp(32px, 4.6vw, 58px); line-height:1.08; margin:0 0 .4em; letter-spacing:-.02em; }
+  h2 { font-size: clamp(24px, 2.6vw, 34px); margin:0 0 .5em; letter-spacing:-.01em; }
+  p, li { color:var(--ink); }
+  .lede { font-size: clamp(20px, 2vw, 26px); color:var(--muted); }
+  .kicker { text-transform:uppercase; letter-spacing:.16em; font-size:13px; color:var(--accent); margin-bottom:1.2em; }
+  ul { padding-left:1.1em; } li { margin:.35em 0; }
+  table { border-collapse:collapse; width:100%; margin:.6em 0; font-size:.95em; }
+  th, td { text-align:left; padding:.5em .6em; border-bottom:1px solid var(--line); }
+  th { font-size:.8em; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
+  code { background:#ece7df; padding:.1em .35em; border-radius:4px; font-size:.9em; }
+  pre { background:#171c21; color:#e9e4db; padding:1em 1.2em; border-radius:10px;
+        overflow:auto; font-size:15px; line-height:1.45; }
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:2.2em; align-items:start; }
+  .shot { width:100%; border:1px solid var(--line); border-radius:8px; display:block; }
+  .cap { font-size:14px; color:var(--muted); margin-top:.5em; }
+  .big { font-size: clamp(40px, 6vw, 76px); font-weight:700; letter-spacing:-.03em; }
+  .good { color:var(--good); } .bad { color:var(--accent); } .warn { color:var(--warn); }
+  .foot { position:fixed; left:6vw; right:6vw; bottom:3vh; display:flex; justify-content:space-between;
+          font-size:13px; color:var(--muted); }
+  .dots { display:flex; gap:6px; }
+  .dot { width:7px; height:7px; border-radius:50%; background:var(--line); }
+  .dot.on { background:var(--accent); }
+  @media (max-width: 860px) { .cols { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="deck">
+
+<section class="on">
+  <div class="kicker">FYP progress · November 2026</div>
+  <h1>Citation-first retrieval<br>over financial documents</h1>
+  <p class="lede">Every answer cites the page, the box and the quote it came from —
+     and an answer whose numbers are not in those quotes is withheld.</p>
+</section>
+
+<section>
+  <div class="kicker">What it does</div>
+  <div class="cols">
+    <div>
+      <h2>Ask a 277-page report a question</h2>
+      <ul>
+        <li>Parses the PDF into <strong>citeable units</strong>: page, box, quote, value.</li>
+        <li>Retrieves with BM25 + embeddings + a reranker.</li>
+        <li>An agent writes the answer and must justify every number.</li>
+        <li>Otherwise it refuses, and says which check failed.</li>
+      </ul>
+    </div>
+    <div>
+      <img class="shot" src="images/page_boxes.png" alt="Page with numeric units boxed">
+      <p class="cap">Every numeric unit boxed; the net-profit row highlighted.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">How it works</div>
+  <h2>From PDF to a cited answer</h2>
+<pre>PDF ─► Docling (layout, tables)  ─┐
+    └► PyMuPDF (text, boxes)     ┴► UNITS (page, box, quote, value)
+                                      │
+                              RETRIEVAL  BM25 + bge-small → RRF → rerank
+                                      │
+                                 AGENT   tools: search, read row, read table
+                                      │
+                            VERIFICATION  numbers must be in cited quotes
+                                      │      year column, section scope
+                                      ▼
+                              ANSWER  or  REFUSAL</pre>
+</section>
+
+<section>
+  <div class="kicker">Results</div>
+  <h2>Three question sets, one frozen configuration</h2>
+  <table>
+    <tr><th>questions</th><th>correct</th><th>wrong</th></tr>
+    <tr><td>uses the report's own wording (31)</td><td class="good"><strong>0.94</strong></td><td>0–1</td></tr>
+    <tr><td>concept questions (14)</td><td class="good"><strong>0.86</strong></td><td>0–1</td></tr>
+    <tr><td>fair paraphrases (19)</td><td class="warn"><strong>0.67</strong></td><td>4–6</td></tr>
+    <tr><td>same, stronger model</td><td><strong>0.76</strong></td><td>2</td></tr>
+  </table>
+  <p class="cap">Retrieval is not the bottleneck: the right figure is in the top 5 for 80–90% of questions.</p>
+</section>
+
+<section>
+  <div class="kicker">The finding</div>
+  <h2>Verification proves a number is <em>in</em> the quote.<br>It cannot prove the quote answers the question.</h2>
+  <table>
+    <tr><th>with the evidence removed</th><th>check off</th><th>check on</th></tr>
+    <tr><td>invented a number in no quote</td><td>4</td><td class="good"><strong>0 shown</strong></td></tr>
+    <tr><td>real number from the wrong row, year or entity</td><td>4</td><td class="bad"><strong>4 still shown</strong></td></tr>
+  </table>
+  <p class="cap">Faithful and wrong is the failure mode that survives. That is the contribution.</p>
+</section>
+
+<section>
+  <div class="kicker">Limitations</div>
+  <h2>What this is not yet</h2>
+  <div class="cols">
+    <ul>
+      <li><strong>One document.</strong> A Chinese filing parses (10,052 units) but retrieves at 0.20 — the encoder is English-only.</li>
+      <li><strong>60 questions</strong>, written by the author; three are ambiguous and reported separately.</li>
+    </ul>
+    <ul>
+      <li><strong>Charts are not read</strong> — "multimodal" here means tables.</li>
+      <li><strong>Permissions are simulated</strong> by removing evidence, not enforced.</li>
+      <li>Negative results are documented: table context 0.54, select-then-extract 0.16–0.36.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Next</div>
+  <h2>Three ways to spend the time left</h2>
+  <table>
+    <tr><th>move</th><th>what it buys</th></tr>
+    <tr><td>second English filing</td><td>generalisation — the missing evidence</td></tr>
+    <tr><td>multilingual encoder</td><td>the Chinese report becomes usable</td></tr>
+    <tr><td>graph layer</td><td>linking a row to its statement, entity and period</td></tr>
+  </table>
+  <p class="cap">The graph is the natural answer to the finding: scope is what the check cannot see.</p>
+</section>
+
+<section>
+  <div class="kicker">Try it</div>
+  <h2>Two commands</h2>
+<pre># the whole pipeline, two questions, ~30 s
+export DEEPSEEK_API_KEY=sk-...
+./scripts/demo.sh
+
+# the clickable bench
+streamlit run app.py</pre>
+  <p>Repository: <code>github.com/ivanlyf0712/fyp-citation-first-rag</code></p>
+  <p class="cap">Results, audits and negative results: RESULTS.md · ENFORCEMENT.md · AUDIT.md</p>
+</section>
+
+</div>
+<div class="foot">
+  <span>← → to move</span>
+  <div class="dots" id="dots"></div>
+</div>
+<script>
+  const slides = [...document.querySelectorAll('section')];
+  const dots = document.getElementById('dots');
+  slides.forEach(() => dots.appendChild(Object.assign(document.createElement('span'), {className: 'dot'})));
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('on', k === i));
+    [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i));
+  }
+  addEventListener('keydown', e => {
+    if (['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (['ArrowLeft','ArrowUp','PageUp'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  addEventListener('click', e => { if (e.clientX > innerWidth / 2) show(i + 1); else show(i - 1); });
+  show(0);
+</script>
+</body>
+</html>

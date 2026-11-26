@@ -8,7 +8,18 @@ answer cannot be found in a quote it cites, **the answer is withheld**.
 
 ## Demo
 
-The bench turns each page into clickable evidence.
+**Command line, two minutes** (needs `DEEPSEEK_API_KEY`):
+
+```bash
+export DEEPSEEK_API_KEY=sk-...
+./scripts/demo.sh
+```
+
+It prints the corpus size, answers one question with its citations, then asks the
+same question with the evidence removed — and shows what the system does when the
+quote cannot support the answer.
+
+**In the browser**, the bench turns each page into clickable evidence.
 
 1. **Upload** an annual report and parse a page range (about 5 s/page, cached).
 2. **Click any box** on the page — the right panel shows that unit's crop, its
@@ -20,6 +31,9 @@ The bench turns each page into clickable evidence.
 The crop beside every citation is taken from the PDF at that unit's box:
 
 ![The Net profit row as returned with a citation](docs/images/crop_row.png)
+
+**Slides:** [docs/presentation.html](docs/presentation.html) — eight screens,
+arrow keys to move, no server needed.
 
 ## Quickstart
 
